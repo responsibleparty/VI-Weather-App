@@ -1,0 +1,22 @@
+body{
+    display: flex;
+    flex-direction: row;
+    padding: 100px;
+}
+.jumbotron h1{
+    text-align: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+}
+#statContainer{
+    border: 2px solid black;
+
+}
+#forecastContainer{
+    margin-top: 20px;
+    border: 2px solid black;
+}
