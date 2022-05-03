@@ -13,8 +13,16 @@ function initiate(){
     listOfCities = JSON.parse(localStorage.getItem("savedCity"))
   }
   for (let city of listOfCities){
-    appendCities.innerHTML += `<button>${city}</button`;
+    //appendCities.innerHTML += `<button>${city}</button`;
+    var createRecentSearchBtn = document.createElement("button");
+    createRecentSearchBtn.textContent = city;
+    createRecentSearchBtn.addEventListener("click", function(){
+      console.log(this.innerHTML); //Returns the content inside element - .value doesn't work
+      getCurrentWeather(this.innerHTML);
+    })
+    appendCities.appendChild(createRecentSearchBtn);
   }
+
 }
 
 initiate();
@@ -75,7 +83,15 @@ function getCurrentWeather(location, lat, lon) {
           return;
         }
         saveToLocal(data.name);
-        appendCities.innerHTML += `<button>${searchField.value}</button`;
+        var createRecentSearchBtn = document.createElement("button");
+        createRecentSearchBtn.textContent = searchField.value;
+        createRecentSearchBtn.addEventListener("click", function(){
+        console.log(this);
+        getCurrentWeather(this.innerHTML);
+        })
+        appendCities.appendChild(createRecentSearchBtn);
+        
+        //appendCities.innerHTML += `<button>${searchField.value}</button`;
 
     });
 };
